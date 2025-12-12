@@ -2,29 +2,29 @@
 #ifndef MY_MD_SPI_H
 #define MY_MD_SPI_H
 
-#include <ThostFtdcMdApi.h> // 包含您提供的头文件
-#include <ThostFtdcUserApiStruct.h> // 包含CTP API的数据结构头文件
+#include <ThostFtdcMdApi.h>
+#include <ThostFtdcUserApiStruct.h>
 
 #include <iostream>
 #include <string>
 #include <vector>
-#include <cstring> // For strcpy_s or strncpy
-#include <iconv.h> // 添加 iconv 头文件
+#include <cstring>
+#include <iconv.h>
 
 // 定义一些常量，实际使用时应从配置文件或命令行参数读取
-const char* FRONT_ADDR = "tcp://182.254.243.31:30013"; // 示例行情前置机地址，请替换为实际地址
-const char* BROKER_ID = "9999"; // 示例经纪公司代码
-const char* USER_ID = "anon"; // 示例用户ID
-const char* PASSWORD = "123456"; // 示例密码
+const char* FRONT_ADDR = "tcp://182.254.243.31:30013"; // 行情前置机地址
+const char* BROKER_ID = "9999"; // 经纪公司代码
+const char* USER_ID = "anon"; // 用户ID
+const char* PASSWORD = "123456"; // 密码
 
 // 要订阅的合约列表
-const char* INSTRUMENT_IDS[] = {"rb2405", "au2601"}; // 示例合约代码
+const char* INSTRUMENT_IDS[] = {"rb2405", "au2601"}; // 合约代码
 const int INSTRUMENT_COUNT = sizeof(INSTRUMENT_IDS) / sizeof(INSTRUMENT_IDS[0]);
 
 class MyMdSpi : public CThostFtdcMdSpi
 {
 public:
-    CThostFtdcMdApi* m_pMdApi; // 指向MdApi实例的指针
+    CThostFtdcMdApi* m_pMdApi;
     int m_nRequestID;          // 请求ID，用于匹配请求和响应
     bool m_bIsLogin;           // 登录状态
     bool m_bIsConnected;       // 连接状态
