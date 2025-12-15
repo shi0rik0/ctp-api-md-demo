@@ -6,8 +6,8 @@ LDFLAGS = -L./lib/ctpapi_v6.7.11 -lthostmduserapi_se -lpthread
 
 BUILD_DIR = build
 TARGET = ctpapi-md-demo
-SOURCES = main.cpp
-HEADERS = MyMdSpi.h
+SOURCES = main.cpp MyMdSpi.cpp config.cpp
+HEADERS = MyMdSpi.h config.h
 OBJECTS = $(addprefix $(BUILD_DIR)/, $(SOURCES:.cpp=.o))
 
 $(BUILD_DIR)/$(TARGET): $(OBJECTS)
